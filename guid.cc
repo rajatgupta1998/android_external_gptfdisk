@@ -16,6 +16,7 @@
 #define __STDC_CONSTANT_MACROS
 #endif
 
+#include <cstdio>
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
@@ -180,7 +181,7 @@ int GUIDData::operator!=(const GUIDData & orig) const {
 string GUIDData::AsString(void) const {
    char theString[40];
 
-   sprintf(theString,
+   snprintf(theString, sizeof(theString),
            "%02X%02X%02X%02X-%02X%02X-%02X%02X-%02X%02X-%02X%02X%02X%02X%02X%02X",
            uuidData[3], uuidData[2], uuidData[1], uuidData[0], uuidData[5],
            uuidData[4], uuidData[7], uuidData[6], uuidData[8], uuidData[9],
